@@ -1,0 +1,8 @@
+---
+import { getEntryBySlug } from "astro:content";
+const { slug } = Astro.props;
+const card: any = await getEntryBySlug("cards", slug);
+const { Content, headings } = await card.render();
+---
+
+<Content />

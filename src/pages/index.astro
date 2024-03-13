@@ -1,0 +1,13 @@
+---
+import Layoud from "../layouts/Layoud.astro";
+const collections = await getCollection("cards");
+console.log(collections);
+import { getCollection } from "astro:content";
+import Hero from "../components/Hero.astro";
+import Onecard from "../components/onecard.astro";
+---
+
+<Layoud>
+	<Hero />
+	{collections.map(({ slug }) => <Onecard slug={slug} />)}
+</Layoud>
