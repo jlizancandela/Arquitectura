@@ -1,4 +1,4 @@
-# Astro Starter Kit: Minimal
+# Astro project for architect's office portfolio
 
 ```sh
 npm create astro@latest -- --template minimal
