@@ -15,6 +15,14 @@ images: [
     {
         url: 'https://images.unsplash.com/photo-1479839672679-a46483c0e7c8',
         alt: otro edificio mas.
+    },
+     {
+        url: 'https://images.unsplash.com/photo-1479839672679-a46483c0e7c8',
+        alt: otro edificio.
+    },
+     {
+        url: 'https://images.unsplash.com/photo-1479839672679-a46483c0e7c8',
+        alt: otro edificio.
     }
 
 ]

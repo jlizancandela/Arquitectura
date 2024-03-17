@@ -1,15 +1,13 @@
 ---
-import { string } from "astro/zod";
-
 const { frontmatter } = Astro.props;
 const { images, tags, h1 } = frontmatter;
-const cantidad = `width: ${Math.round(50 / parseInt(images.length))}vh`;
+const cantidad = parseInt(images.length);
 console.log(cantidad);
 ---
 
 <article>
     <section>
-        <div class="titulo">
+       <div class="titulo">
             <h1>{h1}</h1>
             {
                 tags.map((tag: string) => (
@@ -20,11 +18,13 @@ console.log(cantidad);
             }
         </div>
         <slot />
+
     </section>
-    <section>
+ 
+    <section id="myImages">
         {
             images.map((i: { url: string; alt: string }) => (
-                <img src={i.url} alt={i.alt} style={cantidad} />
+                <img src={i.url} alt={i.alt}  />
             ))
         }
     </section>
@@ -61,32 +61,47 @@ console.log(cantidad);
     article {
         display: flex;
         flex-direction: row;
-        height: 100vh;
-        padding: 100px;
+        width: 100%;
+        flex-wrap: wrap;
+        padding: 20px;
     }
     section {
-        width: 50%;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        padding-left: 50px;
-        padding-right: 50px;
+        width: 100%;
         gap: 20px;
+        padding: 20px;
     }
+
+    #myImages {
+        display: flex;
+    }
+
     p {
-        margin: 20px 0 20px 0;
-        font-size: large;
+s        font-size: large;
     }
     img {
+        width: 100%;
+        margin: auto;
+        
     }
-    img:nth-child(1n) {
-        margin-right: auto;
-    }
-    img:nth-child(2n) {
-        margin-left: auto;
-        margin-right: 50px;
-    }
+
     img:hover {
-        transform: scale(1.2);
+        transform: none;
     }
+    
+    @media screen and (min-width: 950px) { /* Ordenaror */
+        section {
+            width: 50%;
+        }
+
+
+        #myImages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 10px; 
+        }
+    }
+
+
 </style>
