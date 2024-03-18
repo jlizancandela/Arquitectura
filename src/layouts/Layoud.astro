@@ -1,5 +1,5 @@
 ---
-
+import BannerCookies from "../components/BannerCookies.jsx";
 ---
 
 <html lang="en">
@@ -12,6 +12,7 @@
     </head>
     <body>
         <slot />
+        <BannerCookies client:only />
     </body>
 </html>
 <style is:global>

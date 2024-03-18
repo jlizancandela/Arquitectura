@@ -2,7 +2,6 @@
 const { frontmatter } = Astro.props;
 const { images, tags, h1 } = frontmatter;
 const cantidad = parseInt(images.length);
-console.log(cantidad);
 ---
 
 <article>
@@ -24,8 +23,8 @@ console.log(cantidad);
     <section id="myImages">
         {
             images.map((i: { url: string; alt: string }) => (
-                <img src={i.url} alt={i.alt}  />
-            ))
+                <img src={i.url} alt={i.alt}/>
+            )) 
         }
     </section>
 </article>
@@ -94,7 +93,6 @@ s        font-size: large;
         section {
             width: 50%;
         }
-
 
         #myImages {
             display: grid;
