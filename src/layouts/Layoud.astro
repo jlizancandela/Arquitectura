@@ -1,24 +1,32 @@
 ---
-import BannerCookies from "../components/BannerCookies.jsx";
+
 ---
 
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>Astro</title>
-    </head>
-    <body>
-        <slot />
-        <BannerCookies client:only />
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+  <script>
+    import AOS from "aos";
+    import "aos/dist/aos.css"; // You can also use <link> for styles
+    // ..
+    AOS.init();
+  </script>
 </html>
 <style is:global>
-    * {
-        margin: 0px;
-        padding: 0px;
-        box-sizing: border-box;
-    }
+  * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+
+  body {
+  }
 </style>
