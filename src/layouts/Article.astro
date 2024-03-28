@@ -5,133 +5,133 @@ const cantidad = parseInt(images.length);
 ---
 
 <article>
-    <section class="texto">
-       <section class="mdx" data-aos="flip-left">
-         <div class="titulo">
-            <h1>{h1}</h1>
-            {
-                tags.map((tag: string) => (
-                    <a href={`/tags/${tag}`}>
-                        <span class="tag">{tag}</span>
-                    </a>
-                ))
-            }
-        </div>
-        <slot />
-       </section>
-      
-
-    </section>
- 
-    <section id="myImages">
+  <section class="texto">
+    <section class="mdx">
+      <div class="titulo">
+        <h1>{h1}</h1>
         {
-            images.map((i: { url: string; alt: string; grid: string }) => (
-                <img src={i.url} alt={i.alt} class={ i.grid? i.grid : ""}/>
-            )) 
+          tags.map((tag: string) => (
+            <a href={`/tags/${tag}`}>
+              <span class="tag">{tag}</span>
+            </a>
+          ))
         }
+      </div>
+      <slot />
     </section>
+  </section>
+
+  <section id="myImages">
+    {
+      images.map((i: { url: string; alt: string; grid: string }) => (
+        <img src={i.url} alt={i.alt} class={i.grid ? i.grid : ""} />
+      ))
+    }
+  </section>
 </article>
 
 <style>
-    a {
-        text-decoration: none;
-        color: white;
-    }
+  a {
+    text-decoration: none;
+    color: white;
+  }
 
-    a:focus {
-        text-decoration: none;
-        color: white;
-    }
-    .titulo {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
-    .tag {
-        background-color: rgb(206, 24, 230);
-        border-radius: 10px;
-        padding: 6px;
-        font-size: 12px;
-    }
-    .tag:hover {
-        box-shadow: 0px 0px 4px 3px blue;
-    }
-    .tag:nth-child(2n) {
-        background-color: cadetblue;
-    }
+  a:focus {
+    text-decoration: none;
+    color: white;
+  }
+  .titulo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .tag {
+    background-color: rgb(206, 24, 230);
+    border-radius: 10px;
+    padding: 6px;
+    font-size: 12px;
+  }
+  .tag:hover {
+    box-shadow: 0px 0px 4px 3px blue;
+  }
+  .tag:nth-child(2n) {
+    background-color: cadetblue;
+  }
 
-    article {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        flex-wrap: wrap;
-        padding: 20px;
+  article {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+  section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  texto {
+    width: 100%;
+    padding: 0px;
+  }
+
+  #myImages {
+    display: flex;
+  }
+
+  p {
+    font-size: large;
+  }
+  img {
+    align-items: center;
+    object-fit: cover;
+    width: 100%;
+    transform: scaleX(-1);
+  }
+  .mdx {
+    width: 100%;
+  }
+
+  #myImages {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 950px) {
+    article:nth-child(2n) {
+      flex-direction: row-reverse;
     }
-    section {
-        display: flex;
-        flex-direction: column;
+    .texto {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 30px;
+      width: 50%;
+      .mdx {
         width: 100%;
-        gap: 20px;
-        padding: 20px;
+        border: dashed 5px whitesmoke;
+      }
+      .mdx:hover {
+        border: dashed 5px rebeccapurple;
+      }
     }
 
     #myImages {
-        display: flex;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 10px;
+      width: 50%;
     }
 
-    p {
-s        font-size: large;
-    }
-    img {
-        
-        margin: auto;
-        object-fit: cover;
-        width: 100%;
-        transform: scaleX(-1);
-        
+    .apaisada {
+      grid-column: span 2;
+      height: 100%; /* Esto hará que la imagen ocupe dos columnas */
     }
 
-  
-    
-    @media screen and (min-width: 950px) { 
-       
-
-        article:nth-child(2n) {
-            flex-direction: row-reverse;
-        }
-
-        .texto {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 30px;
-
-            .mdx { 
-                width: 100%;
-                border: dashed 5px whitesmoke;
-                
-            }
-            .mdx:hover {
-                border: dashed 5px rebeccapurple;
-            }
-        }
-        }
-        section {
-            width: 50%;
-        }
-
-        #myImages {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            grid-gap: 10px; 
-        }
-
-        .apaisada {
-        grid-column: span 2;
-        height: 100%; /* Esto hará que la imagen ocupe dos columnas */
-        }
-
-        .cover {
-            height: 100%;
-        }
+    .cover {
+      height: 100%;
+    }
+  }
 </style>

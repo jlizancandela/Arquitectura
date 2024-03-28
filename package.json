@@ -19,10 +19,12 @@
     "astro": "^4.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "stylelint": "^16.3.1",
     "typescript": "^5.4.2"
   },
   "devDependencies": {
-    "@types/aos": "^3.0.7"
+    "@types/aos": "^3.0.7",
+    "postcss-html": "^1.6.0",
+    "stylelint": "^16.3.1",
+    "stylelint-config-astro": "^1.0.4"
   }
 }
